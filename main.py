@@ -14,6 +14,7 @@ def main():
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
+    print(f"Player turn speed: {PLAYER_TURN_SPEED}")
 
     dt = 0
 
@@ -21,7 +22,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-            
+        
+        player.update(dt)
+
         screen.fill("black")
         player.draw(screen)
         pygame.display.flip()
